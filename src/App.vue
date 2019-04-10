@@ -1,28 +1,41 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1 v-on:click="goHome()" id="title">Our Blog</h1>
+    <nav></nav>
+    <router-view />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import router from './router';
 
 export default {
-  name: 'app',
-  components: {
-    HelloWorld
-  }
+  methods: {
+    goHome() {
+      router.push({
+        name: 'Posts',
+      });
+    },
+  },
 }
 </script>
 
 <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+#title {
+  cursor: pointer;
+  margin-bottom: 24px;
+}
+
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 24px;
 }
 </style>
